@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="content-type" content="text/html; charset=utf-8">
+        <title>Price Pie [#SummerOfLove]</title>
+        <!-- css -->
+        <style type="text/css">
+            h1, h2 {
+                text-align: center;
+            }
+        </style>
+        <!-- js -->
+        <script src="static/js/raphael-min.js" type="text/javascript"></script>
+        <script src="static/js/g.raphael-min.js" type="text/javascript"></script>
+        <script src="static/js/g.pie-min.js" type="text/javascript"></script>
+        <script src="static/js/jquery-1.7.2.min.js" type="text/javascript"></script>
+        
+        <script>
+            function drawPie(element, radius, data) {
+                var paper = Raphael(element, radius * 2, radius * 2);
+                paper.piechart(radius, radius, radius, data);
+            };
+
+            $(document).ready(function() {
+                // draw all the charts from the data
+                {% for pie in pies %}
+                    drawPie("pie", 100, {{ pie.fieldarray }});
+                {% endfor %}
+            });
+        </script>
+    </head>
+    <body>
+        <h1>PricePie chart examples</h1>
+        <h2>#SummerOfLove</h2>
+        <div id="pie"></div>
+    </body>
+</html>
