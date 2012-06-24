@@ -23,8 +23,7 @@
                 var paper = Raphael(element, radius * 2, radius * 2);
                 paper.piechart(radius, radius, radius, data, {
                     colors: ['#3D499F','#F48CA6','#7BAFA5','#DDA127','#C41B7C'],
-                })
-                .click(function() { window.location.href = 'detail/' + which;});
+                });
             };
 
             $(document).ready(function() {

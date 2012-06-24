@@ -16,4 +16,5 @@ urlpatterns = patterns('',
     # url(r'^admin/', include(admin.site.urls)),
     url(r'^$', 'pies.views.raphael'),
     url(r'^detail/(?P<chart_id>\d+)$', 'pies.views.detail'),
+    url(r'^qrcode/(?P<chart_id>\d+)$', 'pies.views.qrcode'),
 )

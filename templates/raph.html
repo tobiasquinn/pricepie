@@ -11,12 +11,16 @@
             a {
                 text-decoration: none
             }
+            .pie {
+                float: left;
+            }
         </style>
         <!-- js -->
         <script src="/static/js/raphael-min.js" type="text/javascript"></script>
         <script src="/static/js/g.raphael-min.js" type="text/javascript"></script>
         <script src="/static/js/g.pie.js" type="text/javascript"></script>
         <script src="/static/js/jquery-1.7.2.min.js" type="text/javascript"></script>
+        <script src="/static/js/jquery.qrcode.min.js" type="text/javascript"></script>
         
         <script>
             function drawPie(element, radius, which, data) {
@@ -34,9 +38,20 @@
 
             $(document).ready(function() {
                 // draw all the charts from the data
+                var radius = 100;
                 {% for pie in pies %}
-                    drawPie("pie", 100, {{ pie.id }}, {{ pie.fieldarray }});
+                    var elname = 'pie' + {{ pie.id }};
+                    var elqrname = 'pie' + {{ pie.id }} + 'qr';
+                    var el = $('<div class="enclosure"><div id=' + elname + ' class="pie"></div><div id=' + elqrname + ' class="qrcode"></div></div><br/>');
+                    el.appendTo($('#pie'));
+                    drawPie(elname, radius, {{ pie.id }}, {{ pie.fieldarray }});
+                    $('#' + elqrname).qrcode({
+                        width: radius * 2,
+                        height: radius * 2,
+                        text: 'http://pricepie.ddns.net/qrcode/' + {{ pie.id }}
+                    });
                 {% endfor %}
+                // create some qrcodes
             });
         </script>
     </head>
@@ -45,5 +60,6 @@
         <h2>#SummerOfLove</h2>
         <br/>
         <div id="pie"></div>
+        <div id="qrcode"></div>
     </body>
 </html>

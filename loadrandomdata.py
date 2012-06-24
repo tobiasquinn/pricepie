@@ -7,6 +7,7 @@ setup_environ(settings)
 from pies.models import PieData
 
 RECORDS = 24
+RECORDS = 5
 
 import random
 

@@ -13,3 +13,6 @@ def raphael(request):
 def detail(request, chart_id):
     piedata = get_object_or_404(PieData, pk=chart_id)
     return render_to_response("detail.html", {'pie': piedata })
+
+def qrcode(request, chart_id):
+    return render_to_response('qrcode.html')
