@@ -1,11 +1,12 @@
 #!/usr/bin/env python
 from django.core.management import setup_environ
 from pricepie import settings
+import sys
 
 setup_environ(settings)
 from pies.models import PieData
 
-RECORDS = 25
+RECORDS = 24
 
 import random
 
@@ -17,6 +18,9 @@ def constrained_sum_sample_pos(n, total):
     return [a - b for a, b in zip(dividers + [total], [0] + dividers)]
 
 for i in range(RECORDS):
+    sys.stdout.write('.')
+    sys.stdout.flush()
     p = PieData()
     p.loadData(constrained_sum_sample_pos(5, 100))
     p.save()
+print

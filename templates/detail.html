@@ -24,19 +24,12 @@
                 paper.piechart(radius, radius, radius, data, {
                     colors: ['#3D499F','#F48CA6','#7BAFA5','#DDA127','#C41B7C'],
                 })
-                .click(function() { window.location.href = 'detail/' + which;})
-                .hover(function() {
-                    document.body.style.cursor = "pointer";
-                    }, function() {
-                    document.body.style.cursor = "default";
-                });
+                .click(function() { window.location.href = 'detail/' + which;});
             };
 
             $(document).ready(function() {
                 // draw all the charts from the data
-                {% for pie in pies %}
-                    drawPie("pie", 100, {{ pie.id }}, {{ pie.fieldarray }});
-                {% endfor %}
+                drawPie("pie", 250, {{ pie.id }}, {{ pie.fieldarray }});
             });
         </script>
     </head>
@@ -44,6 +37,6 @@
         <h1>PricePie chart examples</h1>
         <h2>#SummerOfLove</h2>
         <br/>
-        <div id="pie"></div>
+        <center><div id="pie"></div></center>
     </body>
 </html>

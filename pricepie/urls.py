@@ -15,4 +15,5 @@ urlpatterns = patterns('',
     # Uncomment the next line to enable the admin:
     # url(r'^admin/', include(admin.site.urls)),
     url(r'^$', 'pies.views.raphael'),
+    url(r'^detail/(?P<chart_id>\d+)$', 'pies.views.detail'),
 )

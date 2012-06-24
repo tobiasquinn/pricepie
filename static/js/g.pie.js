@@ -38,6 +38,9 @@
                 ];
 
             res.middle = { x: xm, y: ym };
+            console.log(startAngle, endAngle);
+            //res.text = { x: xm, y: ym, angle: startAngle - endAngle };
+            res.text = { x: xm, y: ym, angle: 0 };
             return res;
         }
 
@@ -98,6 +101,10 @@
                 sectors.push(p);
                 series.push(p);
                 opts.init && p.animate({ path: path.join(",") }, (+opts.init - 1) || 1000, ">");
+                var text = paper.text(path.text.x, path.text.y, "Test Label");
+                text.attr({transform: 'r' + path.text.angle });
+                var text = paper.text(path.text.x, path.text.y, "Test Label");
+                text.attr({transform: 'r' + path.text.angle + 35 });
             }
 
             for (i = 0; i < len; i++) {

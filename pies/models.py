@@ -6,6 +6,7 @@ class PieData(models.Model):
     f3 = models.FloatField()
     f4 = models.FloatField()
     f5 = models.FloatField()
+    name = models.TextField()
 
     @property
     def fieldarray(self):
