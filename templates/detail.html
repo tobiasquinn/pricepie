@@ -15,20 +15,13 @@
         <!-- js -->
         <script src="/static/js/raphael-min.js" type="text/javascript"></script>
         <script src="/static/js/g.raphael-min.js" type="text/javascript"></script>
-        <script src="/static/js/g.pie.js" type="text/javascript"></script>
+        <script src="/static/js/donut.js" type="text/javascript"></script>
         <script src="/static/js/jquery-1.7.2.min.js" type="text/javascript"></script>
         
         <script>
-            function drawPie(element, radius, which, data) {
-                var paper = Raphael(element, radius * 2, radius * 2);
-                paper.piechart(radius, radius, radius, data, {
-                    colors: ['#3D499F','#F48CA6','#7BAFA5','#DDA127','#C41B7C'],
-                });
-            };
-
             $(document).ready(function() {
                 // draw all the charts from the data
-                drawPie("pie", 250, {{ pie.id }}, {{ pie.fieldarray }});
+                drawPie("pie", 250, {{ pie.id }}, {{ pie.fieldarray }}, '/');
             });
         </script>
     </head>
