@@ -12,7 +12,7 @@
                 text-decoration: none
             }
             .pie {
-                margin-left: auto;
+                float: left;
             }
             .qrcode {
                 float:right;
@@ -36,17 +36,18 @@
                     el.appendTo($('#pie'));
                     drawPie(elname, radius, {{ pie.id }}, {{ pie.fieldarray }}, 'http://pricepie.ddns.net/detail/' + {{ pie.id }});
                     // create some qrcodes
-                    $('#' + elqrname).qrcode({
-                        width: radius,
-                        height: radius,
-                        text: 'http://pricepie.ddns.net/qrcode/' + {{ pie.id }}
-                    });
+                    //$('#' + elqrname).qrcode({
+                    //    width: radius,
+                    //    height: radius,
+                    //    text: 'http://pricepie.ddns.net/qrcode/' + {{ pie.id }}
+                    //});
                 {% endfor %}
             });
         </script>
     </head>
     <body>
         <h1>PricePie chart examples</h1>
+        <h1>pricepie.ddns.net</h1>
         <h2>#SummerOfLove</h2>
         <br/>
         <div id="pie"></div>
